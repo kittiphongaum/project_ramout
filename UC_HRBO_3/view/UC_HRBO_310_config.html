@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=11" />
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="/BO-HR/assets/img/logo-fav.png" rel="shortcut icon">
+    <title>ธนาคารออมสิน</title>
+    <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/material-design-icons/css/material-design-iconic-font.min.css" />
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com5shiv/3.7.25shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/select2/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/bootstrap-slider/css/bootstrap-slider.min.css" />
+    <link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+</head>
+<body ng-app="">
+    <div class="be-wrapper">
+        <div ng-include="'/BO-HR/navbar?active={menu_item}'"></div>
+        <div class="be-content">
+            <div class="page-head">
+                <h2 class="page-head-title">สวัสดิการ</h2>
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb page-head-nav">
+                        <li class="breadcrumb-item">
+                            <a href="/BO-HR/index">หน้าหลัก</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="UC_HRBO_3">สวัสดิการ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="UC_HRBO_310_menu">เมนูเงินกู้ส่งเสริมสวัสดิภาพพนักงาน</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#">จัดการข้อมูลเงื่อนไขเงินกู้ส่งเสริมสวัสดิภาพพนักงาน</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="main-content container-fluid">
+                <form data-parsley-validate="" id="form_config" novalidate="" enctype="multipart/form-data" method="POST" action="../endpoint/api_310_config">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card card-border-color card-border-color-primary">
+                                <div class="card-header card-header-divider">ตั้งค่าข้อมูลเงื่อนไขเงินกู้เริ่มต้น</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-3 col-xs-3 col-sm-3 col-lg-3 form-group">
+                                            <label for="times">จำนวนเท่าของเงินเดือนในการกู้</label>
+                                            <input type="text" class="form-control input-number" placeholder="หากไม่ระบุจะเป็น 12 เท่าของเงินเดือน" name="loan_config[month_times]" value="{month_times}">
+                                        </div>
+                                        <div class="col-3 col-xs-3 col-sm-3 col-lg-3 form-group">
+                                            <label for="times">จำกัดจำนวนการค้ำประกัน</label>
+                                            <input type="text" class="form-control input-number" placeholder="หากไม่ระบุจะเป็น 5 คน" name="loan_config[max_person_guarantee]" value="{max_person_guarantee}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card card-border-color card-border-color-primary">
+                                <div class="card-header card-header-divider">ตั้งค่าเงินกู้เฉพาะ (หากไม่ระบุ จะเท่ากับการตั้งค่าจำนวนเท่าของเงินเดือนในการกู้)</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- BEGIN data -->
+                                        <div class="col-4 col-xs-4 col-sm-4 col-lg-4 form-group">
+                                            <label for="config">{data.name}</label>
+                                            <input id="config" type="text" required="" value="{data.amount}" placeholder="ระบุเงิน"
+                                                autocomplete="off" class="form-control input-number" name="loan_amount[{data.benefit_code}]">
+
+                                        </div>
+                                        <!-- END data -->
+                                        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 text-right">
+                                            <button type="button" class="btn btn-space btn-primary submit" name="">
+                                                <i class="icon icon-left mdi mdi-save"></i> บันทึก</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/BO-HR/assets/lib/angular.min.js"></script>
+    <script src="/BO-HR/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/BO-HR/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="/BO-HR/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="/BO-HR/assets/js/app.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //initialize the javascript
+            App.init();
+
+            $(".input-number").on("keypress", validateNumber);
+
+            $(".submit").on('click', function () {
+                $.ajax({
+                    type: "POST",
+                    url: "../endpoint/api_310_config",
+                    data: $("#form_config").serialize(),
+                    success: function (response) {
+                        if (response.result) {
+                            $('#md-success').modal('show');
+                        } else {
+                            $('#md-error').modal('show');
+                        }
+                    }
+                });
+            });
+
+            function validateNumber(event) {
+                var key = window.event ? event.keyCode : event.which;
+                if ((key < 48 || key > 57) && key != 8) {
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+        });
+    </script>
+</body>
+
+<!--Bootstrao Modals-->
+<div id="md-success" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                    <span class="mdi mdi-close"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="text-primary">
+                        <span class="modal-main-icon mdi mdi-check"></span>
+                    </div>
+                    <h3>ตั้งค่าเรียบร้อยแล้ว</h3>
+                    <div class="mt-8">
+                        <button type="button" data-dismiss="modal" class="btn btn-space btn-secondary" onclick="location.href='UC_HRBO_310_config'">รับทราบ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="md-error" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                    <span class="mdi mdi-close"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="text-danger">
+                        <span class="modal-main-icon mdi mdi-alert-circle"></span>
+                    </div>
+                    <h3>การตั้งค่าผิดพลาด</h3>
+                    <div class="mt-8">
+                        <button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">รับทราบ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

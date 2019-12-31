@@ -1,0 +1,414 @@
+﻿{
+    "AvailablePosition": {
+        "objectType": "O",
+        "objectId": "10000000",
+        "shortText": null,
+        "longText": "ธนาคารออมสิน",
+        "beginDate": "",
+        "endDate": "",
+        "dflag": "X",
+        "childs": [
+            {
+                "objectType": "S",
+                "objectId": "20000000",
+                "shortText": null,
+                "longText": "ผู้อำนวยการธนาคารออมสิน",
+                "beginDate": "",
+                "endDate": "",
+                "dflag": "X",
+                "childs": [
+                    {
+                        "objectType": "P",
+                        "objectId": "05563866",
+                        "shortText": null,
+                        "longText": "นาย วรวิทย์ ชัยลิมปมนตรี",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    }
+                ],
+                "parent": null
+            },
+            {
+                "objectType": "O",
+                "objectId": "10000001",
+                "shortText": null,
+                "longText": "ขึ้นตรงผู้อำนวยการธนาคารออมสิน",
+                "beginDate": "",
+                "endDate": "",
+                "dflag": "X",
+                "childs": [
+                    {
+                        "objectType": "S",
+                        "objectId": "20000001",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "20000002",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "20000003",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "20000005",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "20000006",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "20000007",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "X",
+                        "childs": [
+                            {
+                                "objectType": "P",
+                                "objectId": "06000306",
+                                "shortText": null,
+                                "longText": "นาย ทดสอบ2 ทดสอบ2",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "",
+                                "childs": [],
+                                "parent": null
+                            }
+                        ],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "20000008",
+                        "shortText": null,
+                        "longText": "ผู้ตรวจการธนาคารออมสินอาวุโส",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "",
+                        "childs": [],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "25000156",
+                        "shortText": null,
+                        "longText": "รองผู้อำนวยการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "X",
+                        "childs": [
+                            {
+                                "objectType": "P",
+                                "objectId": "05312750",
+                                "shortText": null,
+                                "longText": "นาย ชูเกียรติ ธิติหิรัญเจริญ",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "",
+                                "childs": [],
+                                "parent": null
+                            }
+                        ],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "S",
+                        "objectId": "25000157",
+                        "shortText": null,
+                        "longText": "ผู้ช่วยผู้อำนวยการธนาคารออมสิน",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "X",
+                        "childs": [
+                            {
+                                "objectType": "P",
+                                "objectId": "03102324",
+                                "shortText": null,
+                                "longText": "นาง นงนุช ภูพิพัฒน์ผล",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "",
+                                "childs": [],
+                                "parent": null
+                            }
+                        ],
+                        "parent": null
+                    },
+                    {
+                        "objectType": "O",
+                        "objectId": "10000002",
+                        "shortText": null,
+                        "longText": "ฝ่ายเลขานุการธนาคาร",
+                        "beginDate": "",
+                        "endDate": "",
+                        "dflag": "X",
+                        "childs": [
+                            {
+                                "objectType": "S",
+                                "objectId": "20000009",
+                                "shortText": null,
+                                "longText": "ผู้อำนวยการฝ่าย",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "X",
+                                "childs": [
+                                    {
+                                        "objectType": "P",
+                                        "objectId": "02100984",
+                                        "shortText": null,
+                                        "longText": "น.ส. ฤดีวรรณ ฐิติญาณะกร",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "",
+                                        "childs": [],
+                                        "parent": null
+                                    },
+                                    {
+                                        "objectType": "P",
+                                        "objectId": "02702376",
+                                        "shortText": null,
+                                        "longText": "น.ส. นัทธนกร บุญวงศ์",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "",
+                                        "childs": [],
+                                        "parent": null
+                                    }
+                                ],
+                                "parent": null
+                            },
+                            {
+                                "objectType": "S",
+                                "objectId": "20000010",
+                                "shortText": null,
+                                "longText": "ผู้เชี่ยวชาญ",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "X",
+                                "childs": [
+                                    {
+                                        "objectType": "P",
+                                        "objectId": "03600839",
+                                        "shortText": null,
+                                        "longText": "นาย ภุชงค์ พิจารณ์",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "",
+                                        "childs": [],
+                                        "parent": null
+                                    }
+                                ],
+                                "parent": null
+                            },
+                            {
+                                "objectType": "S",
+                                "objectId": "25000031",
+                                "shortText": null,
+                                "longText": "ผู้อำนวยการฝ่าย",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "X",
+                                "childs": [
+                                    {
+                                        "objectType": "P",
+                                        "objectId": "05456755",
+                                        "shortText": null,
+                                        "longText": "น.ส. บุณยนุช กวินเกรียงไกร",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "",
+                                        "childs": [],
+                                        "parent": null
+                                    }
+                                ],
+                                "parent": null
+                            },
+                            {
+                                "objectType": "S",
+                                "objectId": "25000032",
+                                "shortText": null,
+                                "longText": "ผู้อำนวยการฝ่าย",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "X",
+                                "childs": [
+                                    {
+                                        "objectType": "P",
+                                        "objectId": "05456795",
+                                        "shortText": null,
+                                        "longText": "น.ส. ปิยพร ปล้องไหม",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "",
+                                        "childs": [],
+                                        "parent": null
+                                    }
+                                ],
+                                "parent": null
+                            },
+                            {
+                                "objectType": "O",
+                                "objectId": "10000003",
+                                "shortText": null,
+                                "longText": "หน่วยธุรการ",
+                                "beginDate": "",
+                                "endDate": "",
+                                "dflag": "X",
+                                "childs": [
+                                    {
+                                        "objectType": "S",
+                                        "objectId": "20000011",
+                                        "shortText": null,
+                                        "longText": "ผู้ช่วยผู้อำนวยการฝ่าย",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "X",
+                                        "childs": [
+                                            {
+                                                "objectType": "P",
+                                                "objectId": "03304253",
+                                                "shortText": null,
+                                                "longText": "นาง นงลักษณ์ อุมารัตน์",
+                                                "beginDate": "",
+                                                "endDate": "",
+                                                "dflag": "",
+                                                "childs": [],
+                                                "parent": null
+                                            }
+                                        ],
+                                        "parent": null
+                                    },
+                                    {
+                                        "objectType": "S",
+                                        "objectId": "20000012",
+                                        "shortText": null,
+                                        "longText": "พนักงานปฏิบัติการ",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "X",
+                                        "childs": [
+                                            {
+                                                "objectType": "P",
+                                                "objectId": "02800156",
+                                                "shortText": null,
+                                                "longText": "นาย พิศุทธิ์ เจริญรัตน์",
+                                                "beginDate": "",
+                                                "endDate": "",
+                                                "dflag": "",
+                                                "childs": [],
+                                                "parent": null
+                                            },
+                                            {
+                                                "objectType": "P",
+                                                "objectId": "06000330",
+                                                "shortText": null,
+                                                "longText": "น.ส. test retire",
+                                                "beginDate": "",
+                                                "endDate": "",
+                                                "dflag": "",
+                                                "childs": [],
+                                                "parent": null
+                                            }
+                                        ],
+                                        "parent": null
+                                    },
+                                    {
+                                        "objectType": "S",
+                                        "objectId": "20014848",
+                                        "shortText": null,
+                                        "longText": "แทนปฏิบัติการ",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "X",
+                                        "childs": [
+                                            {
+                                                "objectType": "P",
+                                                "objectId": "05476912",
+                                                "shortText": null,
+                                                "longText": "นาย รัฐนันท์ วิริยะอ่องศรี",
+                                                "beginDate": "",
+                                                "endDate": "",
+                                                "dflag": "",
+                                                "childs": [],
+                                                "parent": null
+                                            }
+                                        ],
+                                        "parent": null
+                                    },
+                                    {
+                                        "objectType": "S",
+                                        "objectId": "20014849",
+                                        "shortText": null,
+                                        "longText": "แทนปฏิบัติการ",
+                                        "beginDate": "",
+                                        "endDate": "",
+                                        "dflag": "X",
+                                        "childs": [
+                                            {
+                                                "objectType": "P",
+                                                "objectId": "05556112",
+                                                "shortText": null,
+                                                "longText": "นาย ณัฐพล ถำอุทก",
+                                                "beginDate": "",
+                                                "endDate": "",
+                                                "dflag": "",
+                                                "childs": [],
+                                                "parent": null
+                                            }
+                                        ],
+                                        "parent": null
+                                    }
+                                ],
+                                "parent": null
+                            }
+                        ],
+                        "parent": null
+                    }
+                ],
+                "parent": null
+            }
+        ],
+        "parent": null
+    }
+}

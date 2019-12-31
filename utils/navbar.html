@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="/BO-HR/assets/img/logo-fav.png">
+  <title>ธนาคารออมสิน</title>
+  <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+  <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/material-design-icons/css/material-design-iconic-font.min.css"
+  />
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-expand fixed-top be-top-header">
+      <div class="container-fluid">
+        <div class="be-navbar-header">
+          <a href="/BO-HR/index" class="navbar-brand"></a>
+        </div>
+        <div class="be-right-navbar">
+          <ul class="nav navbar-nav float-right be-user-nav">
+            <li class="nav-item dropdown">
+              <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                <img src="/BO-HR/assets/img/avatar2.png" alt="Avatar">
+                <span class="user-name">{username}</span>
+              </a>
+              <div role="menu" class="dropdown-menu">
+                <div class="user-info">
+                  <div class="user-name">{firstname}</div>
+                  <div class="user-position online">{username}</div>
+                </div>
+                <a href="#" class="dropdown-item">
+                  <span class="icon mdi mdi-settings"></span> ตั้งค่า</a>
+                <a href="/BO-HR/logout" class="dropdown-item">
+                  <span class="icon mdi mdi-power"></span> ออกจากระบบ</a>
+              </div>
+            </li>
+          </ul>
+          <div class="page-title">
+            <span>Human Resource Back Office</span>
+          </div>
+          <ul class="nav navbar-nav float-right be-icons-nav">
+            <li class="nav-item dropdown">
+              <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                <span class="icon mdi mdi-notifications"></span>
+                <span class="indicator"></span>
+              </a>
+              <ul class="dropdown-menu be-notifications">
+                <li>
+                  <div class="title">Notifications
+                    <span class="badge badge-pill">0</span>
+                  </div>
+                  <div class="footer">
+                    <a href="#">ดูทั้งหมด</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="/BO-HR/index" role="button" class="nav-link">
+                <span class="icon mdi mdi-apps"></span>
+              </a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="be-left-sidebar">
+      <div class="left-sidebar-wrapper">
+        <a href="#" class="left-sidebar-toggle">เมนู</a>
+        <div class="left-sidebar-spacer">
+          <div class="left-sidebar-scroll">
+            <div class="left-sidebar-content">
+              <ul class="sidebar-elements">
+                <li class="divider">เมนู</li>
+                <li class="{active_0}">
+                  <a href="/BO-HR/index">
+                    <i class="icon mdi mdi-home"></i>
+                    <span>หน้าหลัก</span>
+                  </a>
+                </li>
+                <!-- <li class="{active_1}">
+                  <a href="UC_HRBO_1/controller/UC_HRBO_1">
+                    <i class="icon mdi mdi-account-box-o"></i>
+                    <span>อนุมัติการเปลี่ยนแปลงข้อมูลส่วนบุคคล</span>
+                  </a>
+                </li> -->
+                <li class="{active_2}">
+                  <a href="/BO-HR/UC_HRBO_2/controller/UC_HRBO_2">
+                    <i class="icon mdi mdi-assignment-check"></i>
+                    <span>ข้อมูลส่วนบุคคล</span>
+                  </a>
+                </li>
+                <li class="{active_10}">
+                  <a href="/BO-HR/UC_HRBO_10/controller/UC_HRBO_10">
+                    <i class="icon mdi mdi-time"></i>
+                    <span>เวลาการปฏิบัติงาน</span>
+                  </a>
+                </li>                
+                <li class="{active_3}">
+                  <a href="/BO-HR/UC_HRBO_3/controller/UC_HRBO_3">
+                    <i class="icon mdi mdi-balance"></i>
+                    <span>สวัสดิการ</span>
+                  </a>
+                </li>
+                <li class="{active_4}">
+                  <a href="/BO-HR/UC_HRBO_4/controller/UC_HRBO_4">
+                    <i class="icon mdi mdi-accounts"></i>
+                    <span>การพัฒนาบุคลากร</span>
+                  </a>
+                </li>
+                <li class="{active_5}">
+                  <a href="/BO-HR/UC_HRBO_5/controller/UC_HRBO_5">
+                    <i class="icon mdi mdi-search"></i>
+                    <span>การสรรหาบุคลากร</span>
+                  </a>
+                </li>
+                <li class="{active_6}">
+                  <a href="/BO-HR/UC_HRBO_6/controller/UC_HRBO_6">
+                    <i class="icon mdi mdi-notifications"></i>
+                    <span>การแจ้งเตือนต่างๆ</span>
+                  </a>
+                </li>
+                <li class="{active_7}">
+                  <a href="/BO-HR/UC_HRBO_7/controller/UC_HRBO_7">
+                    <i class="icon mdi mdi-comment-text"></i>
+                    <span>ส่วนรับข้อเสนอแนะจากผู้ใช้งาน</span>
+                  </a>
+                </li>
+                <li class="{active_9}">
+                  <a href="/BO-HR/UC_HRBO_9/controller/UC_HRBO_9">
+                    <i class="icon mdi mdi-settings"></i>
+                    <span>การบริหารจัดการข้อมูลทั่วไป</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="/BO-HR/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/BO-HR/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="/BO-HR/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="/BO-HR/assets/js/app.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    //initialize the javascript
+    App.init();
+  });
+</script>

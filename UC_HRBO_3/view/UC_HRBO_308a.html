@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="/BO-HR/assets/img/logo-fav.png">
+  <title>ธนาคารออมสิน</title>
+  <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+  <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/material-design-icons/css/material-design-iconic-font.min.css"
+  />
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/select2/css/select2.min.css" />
+  <link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+</head>
+
+<body ng-app="">
+  <div class="be-wrapper">
+    <div ng-include="'/BO-HR/navbar?active={menu_item}'"></div>
+    <div class="be-content">
+      <div class="page-head">
+        <h2 class="page-head-title">ข้อมูลส่วนบุคคล</h2>
+        <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb page-head-nav">
+            <li class="breadcrumb-item">
+              <a href="/BO-HR/index">หน้าหลัก</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/BO-HR/UC_HRBO_2/controller/UC_HRBO_2">ข้อมูลส่วนบุคคล</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="UC_HRBO_308">ข้อมูลยอดขายหน่วยลงทุน</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="#">นำเข้า</a>
+            </li>            
+          </ol>
+        </nav>
+      </div>
+      <div class="main-content container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card card-border-color card-border-color-primary">
+              <div class="card-header card-header-divider">นำเข้า</div>
+              <div class="card-body">
+                <form id="form1" data-parsley-validate="" novalidate="" enctype="multipart/form-data" method="POST" action="../endpoint/api_308">
+                  <div class="col-12 row">
+                    <div class="col-lg-3 col-sm-6 form-group">
+                      <label for="sdate">แนบไฟล์ข้อมูล</label>
+                      <a data-toggle="tooltip" data-placement="right" data-container="body" title="ไฟล์ที่เป็นนามสกุล CSV, TXT และมีขนาดไม่เกิน 2mb">
+                        <i class="icon mdi mdi-help"></i>
+                      </a>
+                      <div>
+                        <input required="" id="file" type="file" name="file" data-multiple-caption="{count} files selected" class="inputfile">
+                        <label for="file" class="btn-secondary">
+                          <i class="mdi mdi-upload"></i>
+                          <span>แนบไฟล์...</span>
+                        </label>
+                        <a href="../../assets/sample/trading.txt" target="_blank">ตัวอย่างไฟล์ข้อมูล</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row col-lg-6">
+                    <div class="col-lg-12 form-group">
+                      <label>หมายเหตุ</label>
+                      <textarea id="remark" name="remark" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <div class="row pt-0 pt-sm-5">
+                    <div class="col-sm-12 pl-0">
+                      <p class="text-right">
+                        <button onclick="location.href='UC_HRBO_308'" type="button" class="btn btn-space btn-secondary">
+                          <i class="icon icon-left mdi mdi-close"></i> ยกเลิก</button>
+                        <button id="save" type="submit" class="btn btn-space btn-primary">
+                          <i class="icon icon-left mdi mdi-save"></i> บันทึก</button>
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/BO-HR/assets/lib/angular.min.js"></script>
+  <script src="/BO-HR/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/js/app.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/js/app-form-elements.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/bootstrap-slider/bootstrap-slider.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/select2/js/select2.full.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/parsley/parsley.min.js" type="text/javascript"></script>
+  <script src="/BO-HR/assets/lib/parsley/i18n/th.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      //initialize the javascript
+      App.init();
+      App.formElements();
+      $('form').parsley();
+
+      var result = '{result}';
+      if (result == 'true') {
+        $('#md-success').modal('show');
+      } else if (result == 'false') {
+        $('#md-error').modal('show');
+      }
+    });
+  </script>
+</body>
+<!--Bootstrao Modals-->
+<div id="md-success" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+          <span class="mdi mdi-close"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <div class="text-primary">
+            <span class="modal-main-icon mdi mdi-check"></span>
+          </div>
+          <h3>บันทึกข้อมูลสำเร็จ!</h3>
+          <p>จำนวนที่นำเข้า: {records} รายการ</p>
+          <div class="mt-8">
+            <button type="button" data-dismiss="modal" class="btn btn-space btn-secondary" onclick="location.href='UC_HRBO_308'">รับทราบ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="md-error" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+          <span class="mdi mdi-close"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <div class="text-danger">
+            <span class="modal-main-icon mdi mdi-alert-circle"></span>
+          </div>
+          <h3>ไม่สามารถบันทึกข้อมูลได้!</h3>
+          <div class="mt-8">
+            <button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">รับทราบ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

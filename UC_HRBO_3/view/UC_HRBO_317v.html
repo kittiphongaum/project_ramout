@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/BO-HR/assets/img/logo-fav.png">
+	<title>ธนาคารออมสิน</title>
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/material-design-icons/css/material-design-iconic-font.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/datatables/datatables.net-bs4/css/dataTables.bootstrap4.css" />
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/select2/css/select2.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/bootstrap-slider/css/bootstrap-slider.min.css" />
+	<link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+</head>
+
+<body ng-app="">
+	<div class="be-wrapper">
+		<div ng-include="'/BO-HR/navbar?active={menu_item}'"></div>
+		<div class="be-content">
+			<div class="page-head">
+				<h2 class="page-head-title">สวัสดิการ</h2>
+				<nav aria-label="breadcrumb" role="navigation">
+					<ol class="breadcrumb page-head-nav">
+						<li class="breadcrumb-item">
+							<a href="/BO-HR/index">หน้าหลัก</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_3">สวัสดิการ</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_317">การเบิกค่ารักษาพยาบาล</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#">แสดงรายการ</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+
+			<div class="main-content container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card card-border-color card-border-color-primary">
+							<div class="card-header card-header-divider">การเบิกค่ารักษาพยาบาล</div>
+							<div class="card-body">
+								<div class="col-lg-12 be-booking-promo be-booking-promo-primary be-booking-promo-color">
+									<div class="be-booking-desc">
+										<h4 class="be-booking-desc-title">{emp_title} {emp_first_name}
+											{emp_last_name}(รหัส {emp_id}), {emp_position_name}</h4>
+										<span class="be-booking-desc-details">{emp_org_full_name}</span>
+									</div>
+									<div class="be-booking-promo-price">
+										<button data-toggle="modal" data-target="#md-archive" id="get_history"
+											type="button" class="btn btn-space btn-info">
+											<i class="icon icon-left mdi mdi-archive"></i>
+											ประวัติการเบิกค่ารักษาพยาบาล</button>
+										<button data-toggle="modal" data-target="#md-archive-noti" id="get_history"
+											type="button" class="btn btn-space btn-primary">
+											<i class="icon icon-left mdi mdi-email"></i> ประวัติการส่ง
+											Notification</button>
+									</div>
+								</div>
+								<form id="form1">
+									<div class="col-12 col-sm-12 col-md-12 col-lg-12 form-group">
+										<div class="card-header">รายละเอียดการเบิก</div>
+										<div class="user-info-list card">
+											<div class="card-body col-sm-12 col-md-12 col-lg-6">
+												<h5>
+													<table class="no-border no-strip skills">
+														<tbody class="no-border-x no-border-y">
+															<tr>
+																<td class="icon">
+																	<span class="mdi mdi-file"></span>
+																</td>
+																<td class="item">เลขคำขอ</td>
+																<td>{doc_no}</td>
+															</tr>
+															<tr>
+																<td class="icon">
+																	<span class="mdi mdi-time"></span>
+																</td>
+																<td class="item">ผู้บังคับบัญชาอนุมัติ</td>
+																<td>{req_date_}</td>
+															</tr>
+															<tr>
+																<td class="icon">
+																	<span class="mdi mdi-accounts-list"></span>
+																</td>
+																<td class="item">สถานะสิทธิค่ารักษาพยาบาล</td>
+																<td>{approvers_status}</td>
+
+															</tr>
+															<!-- <tr>
+                                                                <td class="icon">
+                                                                    <span class="mdi mdi-accounts-list"></span>
+                                                                </td>
+                                                                <td class="item">เบิกเพิ่มเติมส่วนที่ขาด</td>
+                                                                <td>{Req_additional_flag}</td>
+                                                            </tr> -->
+														</tbody>
+													</table>
+												</h5>
+											</div>
+											<table id="" class="invoice-details">
+												<thead>
+													<tr>
+														<th class="text-left" style="width: 10%">เลขที่ใบเสร็จ</th>
+														<th class="text-left" style="width: 10%">วันที่ใบเสร็จ</th>
+														<th class="text-left" style="width: 15%">เบิกให้</th>
+														<th class="text-left" style="width: 15%">ประเภทการรักษา /
+															กลุ่มโรค</th>
+														<th class="text-left" style="width: 15%">ประเภทสถานพยาบาล</th>
+														<th class="text-left" style="width: 10%">จำนวนวันที่รักษา</th>
+														<th style="width: 10%">จำนวนเงินที่เบิก</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="text-left description">{slip_no}</td>
+														<td class="text-left description">{slip_date}</td>
+														<td class="text-left description">{person_full_name}</td>
+														<td class="text-left description">{patient_category_desc} /
+															{disease_category_type}</td>
+														<td class="text-left description">{clinic_category_type}</td>
+														<td class="text-left description">{admit_days} วัน</td>
+														<td class="amount">{claim_amount} ฿</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td colspan="2" class="summary">ค่ารักษาพยาบาล</td>
+														<td class="amount">{claim_treat_amount} ฿</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td colspan="2" class="summary">ค่าห้อง/ค่าอาหาร</td>
+														<td class="amount">{claim_room_amount} ฿</td>
+													</tr>
+													<!-- <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td colspan="2" class="summary">เบิกเพิ่มเติมส่วนที่ขาด</td>
+                                                        <td class="amount">{req_additional_flag}</td>
+                                                    </tr> -->
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td colspan="2" class="summary">อุปกรณ์/อวัยวะเทียม</td>
+														<td class="amount">{claim_artificial_amount} ฿</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td colspan="2" class="summary">ค่าธรรมเรียมแพทย์</td>
+														<td class="amount">{claim_doctor_amount} ฿</td>
+													</tr>
+													<!-- <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td colspan="2" class="summary">อื่นๆ</td>
+                                                        <td class="amount">-</td>
+                                                    </tr> -->
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td colspan="2" class="summary total">จำนวนเงินที่เบิกจ่ายจริง
+														</td>
+														<td class="amount total-value">{claim_amount} ฿</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row pt-0 pt-sm-5">
+										<div class="col-sm-12 pl-0">
+											<p class="text-right">
+												<!-- <button id="approve" type="button" data-toggle="modal" data-target="#md-approve-noti"
+                                                    class="btn btn-space btn-primary">
+                                                    <i class="icon icon-left mdi mdi-bell"></i> ส่งแจ้งตือนไปหาผู้ใช้</button> -->
+												{btn_status}
+												{btn_status_req_doc}
+												{btn_status_refund}
+											</p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/BO-HR/assets/lib/angular.min.js"></script>
+	<script src="/BO-HR/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript">
+	</script>
+	<script src="/BO-HR/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/js/app.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/datatables/datatables.net/js/jquery.dataTables.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/datatables/datatables.net-bs4/js/dataTables.bootstrap4.js" type="text/javascript">
+	</script>
+	<script src="/BO-HR/assets/js/app-tables-datatables.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/parsley/parsley.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/parsley/i18n/th.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//initialize the javascript
+			App.init();
+			App.dataTables();
+
+			$("#form_approved").on("submit", function (e) {
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: "../endpoint/api_317",
+					data: $(this).serialize(),
+					success: function (response) {
+						if (response.status === "success") {
+							$('#md-approve').modal('hide');
+							$('#md-success').modal('show');
+						} else {
+							$('#md-approve').modal('hide');
+							$('#md-error').modal('show');
+						}
+					}
+				});
+			});
+			
+			$("#form_req_doc").on("submit", function (e) {
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: "../endpoint/api_317",
+					data: $(this).serialize(),
+					success: function (response) {
+						if (response.status === "success") {
+							$('#md-req-doc').modal('hide');
+							$('#md-success').modal('show');
+						} else {
+							$('#md-req-doc').modal('hide');
+							$('#md-error').modal('show');
+						}
+					}
+				});
+			});
+
+			$("#form_refund").on("submit", function (e) {
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: "../endpoint/api_317",
+					data: $(this).serialize(),
+					success: function (response) {
+						if (response.status === "success") {
+							$('#md-refund').modal('hide');
+							$('#md-success').modal('show');
+						} else {
+							$('#md-refund').modal('hide');
+							$('#md-error').modal('show');
+						}
+					}
+				});
+			});
+			$("#form_refundfales").on("submit", function (e) {
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: "../endpoint/api_317",
+					data: $(this).serialize(),
+					success: function (response) {
+						if (response.status === "success") {
+							$('#md-refundfales').modal('hide');
+							$('#md-success').modal('show');
+						} else {
+							$('#md-refundfales').modal('hide');
+							$('#md-error').modal('show');
+						}
+					}
+				});
+			});
+			$("#form_refundapprove").on("submit", function (e) {
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: "../endpoint/api_317",
+					data: $(this).serialize(),
+					success: function (response) {
+						if (response.status === "success") {
+							$('#md-refundapprove').modal('hide');
+							$('#md-success').modal('show');
+						} else {
+							$('#md-refundapprove').modal('hide');
+							$('#md-error').modal('show');
+						}
+					}
+				});
+			});
+		});
+		
+	</script>
+</body>
+<!--Bootstrao Modals-->
+<div id="md-archive" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header modal-header-colored">
+				<h3 class="modal-title">ประวัติการเบิกค่ารักษาพยาบาล</h3>
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="table-responsive noSwipe">
+					<table id="table2" class="table table-striped table-hover table-fw-widget">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>เลขคำขอ</th>
+								<th>จำนวนเงินที่เบิก</th>
+								<th>วันที่เบิก</th>
+								<th>สถานะ</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- BEGIN request -->
+							<tr class="odd gradeX">
+								<td>{request.no}</td>
+								<td>{request.doc_no}</td>
+								<td>{request.claim_amount}฿</td>
+								<td>{request.claim_date}</td>
+								<td>{request.status}</td>
+							</tr>
+							<!-- END request -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-archive-noti" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header modal-header-colored">
+				<h3 class="modal-title">ประวัติ Notification</h3>
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="table-responsive noSwipe">
+					<table id="table4" class="table table-striped table-hover table-fw-widget">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>เลขคำขอ</th>
+								<th>วันทีส่ง Notification</th>
+								<th>เรื่อง</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- BEGIN request2 -->
+							<tr class="odd gradeX">
+								<td style="width:10%;">{request2.no}</td>
+								<td style="width:20%;">{request2.req_no}</td>
+								<td style="width:30%;">{request2.req_datetime}</td>
+								<td style="width:40%;">{request2.description}</td>
+							</tr>
+							<!-- END request2 -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-success" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-primary">
+						<span class="modal-main-icon mdi mdi-check"></span>
+					</div>
+					<h3>ทำรายการสำเร็จ!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary"
+							onclick="location.href='UC_HRBO_317'">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-error" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-danger">
+						<span class="modal-main-icon mdi mdi-alert-circle"></span>
+					</div>
+					<h3>ไม่สามารถทำรายการได้ในขณะนี้ได้!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-approve" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="form_approved">
+				<div class="modal-header modal-header-colored">
+					<h3 class="modal-title">ยืนยันผลการตรวจสอบ</h3>
+					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+						<span class="mdi mdi-close"></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>{emp_title} {emp_first_name} {emp_last_name} (รหัส {emp_id}),
+						{emp_position_name}</p>
+					<p>เลขคำขอ: {doc_no}</p>
+					<p>จำนวนเงินเบิก: {claim_amount}฿</p>
+					<p>จำนวนเงินที่เบิกจ่ายจริง: {claim_amount}฿</p>
+					<div>
+					</div>
+					<input id="status" type="hidden" value="A" name="status">
+					<input id="emp_id" type="hidden" value="{emp_id}" name="emp_id">
+					<input id="doc_no" type="hidden" value="{doc_no}" name="doc_no">
+					<input id="transaction_id" type="hidden" value="{transaction_id}" name="transaction_id">
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+						<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+					<button id="confirm_approve" name="confirm" type="submit" class="btn btn-space btn-primary">
+						<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="md-refundapprove" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="form_refundapprove"data-parsley-validate>
+					<div class="modal-header modal-header-colored">
+						<h3 class="modal-title">ยืนยันผลการตรวจสอบเรียกเงินคืนสำเร็จ</h3>
+						<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+							<span class="mdi mdi-close"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>{emp_title} {emp_first_name} {emp_last_name} (รหัส {emp_id}),
+							{emp_position_name}</p>
+						<p>เลขคำขอ: {doc_no}</p>
+						<p>จำนวนเงินเบิก: {claim_amount}฿</p>
+						<p>จำนวนเงินที่เบิกจ่ายจริง: {claim_amount}฿</p>
+						<div>
+						</div>
+						<input id="status" type="hidden" value="Y" name="status">
+						<input id="emp_id" type="hidden" value="{emp_id}" name="emp_id">
+						<input id="doc_no" type="hidden" value="{doc_no}" name="doc_no">
+						<input id="transaction_id" type="hidden" value="{transaction_id}" name="transaction_id">
+					</div>
+					<div class="modal-footer">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+							<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+						<button id="confirm_approve" name="confirm" type="submit" class="btn btn-space btn-primary">
+							<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="md-approve" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form id="form_approved">
+						<div class="modal-header modal-header-colored">
+							<h3 class="modal-title">ยืนยันผลการตรวจสอบ</h3>
+							<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+								<span class="mdi mdi-close"></span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>{emp_title} {emp_first_name} {emp_last_name} (รหัส {emp_id}),
+								{emp_position_name}</p>
+							<p>เลขคำขอ: {doc_no}</p>
+							<p>จำนวนเงินเบิก: {claim_amount}฿</p>
+							<p>จำนวนเงินที่เบิกจ่ายจริง: {claim_amount}฿</p>
+							<div>
+							</div>
+							<input id="status" type="hidden" value="A" name="status">
+							<input id="emp_id" type="hidden" value="{emp_id}" name="emp_id">
+							<input id="doc_no" type="hidden" value="{doc_no}" name="doc_no">
+							<input id="transaction_id" type="hidden" value="{transaction_id}" name="transaction_id">
+						</div>
+						<div class="modal-footer">
+							<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+								<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+							<button id="confirm_approve" name="confirm" type="submit" class="btn btn-space btn-primary">
+								<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<div id="md-req-doc" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="form_req_doc">
+				<div class="modal-header modal-header-colored">
+					<h3 class="modal-title">ยืนยันการขอเอกสารเพิ่มเติม</h3>
+					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+						<span class="mdi mdi-close"></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p> ถึง {emp_title}{emp_first_name} {emp_last_name}(รหัส {emp_id}),
+						{emp_position_name}</p>
+					<p>เลขคำขอ: {doc_no}</p>
+					<div>
+					</div>
+					<input id="status" type="hidden" value="D" name="status">
+					<input id="emp_id" type="hidden" value="{emp_id}" name="emp_id">
+					<input id="doc_no" type="hidden" value="{doc_no}" name="doc_no">
+					<input id="transaction_id" type="hidden" value="{transaction_id}" name="transaction_id">
+					<div class="box">
+						<textarea rows="4" cols="50" maxlength="250" placeholder="รายละเอียดการขอเอกสารเพิ่มเติม"
+							id="message" name="message"></textarea>
+					</div>
+					<div id="t2" class="col-md-8">
+					</div>
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+						<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+					<button id="confirm_approve" name="confirm" type="submit" class="btn btn-space btn-primary">
+						<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="md-refund" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="form_refund" data-parsley-validate>
+				<div class="modal-header modal-header-colored">
+					<h3 class="modal-title">เรียกเงินคืน</h3>
+					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+						<span class="mdi mdi-close"></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p> ถึง {emp_title}{emp_first_name} {emp_last_name}(รหัส {emp_id}),
+						{emp_position_name}</p>
+					<p>เลขคำขอ: {doc_no}</p>
+					<div>
+					</div>
+					<input id="status" type="hidden" value="R" name="status">
+					<input id="emp_id" type="hidden" value="{emp_id}" name="emp_id">
+					<input id="doc_no" type="hidden" value="{doc_no}" name="doc_no">
+					<input id="transaction_id" type="hidden" value="{transaction_id}" name="transaction_id">
+					<div class="box">
+						<textarea rows="4" cols="50" maxlength="250" placeholder="รายละเอียดการเรียกเงินคืน"
+							id="message" name="message"></textarea>
+					</div>
+					<div style="margin-top: 20px;">
+						<label>จำนวนเงินที่เรียกคืน</label></br>
+						<input name="money_back_amt" type="number" pattern="^[0-9]*\.[0-9][0-9]$" value="0.00">
+					</div>
+
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+						<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+					<button id="confirm_approve" name="confirm" type="submit" class="btn btn-space btn-primary">
+						<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="md-refundfales" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="form_refundfales" data-parsley-validate>
+					<div class="modal-header modal-header-colored">
+						<h3 class="modal-title">เรียกเงินคืนไม่สำเร็จ</h3>
+						<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+							<span class="mdi mdi-close"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p> ถึง {emp_title}{emp_first_name} {emp_last_name}(รหัส {emp_id}),
+							{emp_position_name}</p>
+						<p>เลขคำขอ: {doc_no}</p>
+						<div>
+						</div>
+						<input id="status" type="hidden" value="X" name="status">
+						<input id="emp_id" type="hidden" value="{emp_id}" name="emp_id">
+						<input id="doc_no" type="hidden" value="{doc_no}" name="doc_no">
+						<input id="transaction_id" type="hidden" value="{transaction_id}" name="transaction_id">
+						<div class="box">
+							<textarea rows="4" cols="50" maxlength="250" placeholder="รายละเอียดการเรียกเงินคืน"
+								id="message" name="message"></textarea>
+						</div>
+						<div style="margin-top: 20px;">
+							<label>จำนวนเงินที่เรียกคืน</label></br>
+							<input name="money_back_amt" type="number" pattern="^[0-9]*\.[0-9][0-9]$" value="0.00">
+						</div>
+	
+					</div>
+					<div class="modal-footer">
+	
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+							<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+						<button id="confirm_approve" name="confirm" type="submit" class="btn btn-space btn-primary">
+							<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<div id="md-success-noti" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-primary">
+						<span class="modal-main-icon mdi mdi-check"></span>
+					</div>
+					<h3>ส่งแจ้งเตือนแล้ว!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary"
+							onclick="location.reload()">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</html>

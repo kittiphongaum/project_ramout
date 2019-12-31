@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/BO-HR/assets/img/logo-fav.png">
+	<title>ธนาคารออมสิน</title>
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/material-design-icons/css/material-design-iconic-font.min.css" />
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/select2/css/select2.min.css" />
+	<link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="/BO-HR/assets/css/app_11v.css" type="text/css" />
+	<style>
+		form:invalid+div {
+			display: none;
+		}
+
+	</style>
+</head>
+
+<body ng-app="">
+	<div class="be-wrapper">
+		<div ng-include="'/BO-HR/navbar?active={menu_item}'"></div>
+		<div class="be-content">
+			<div class="page-head">
+				<h2 class="page-head-title">สวัสดิการ</h2>
+				<nav aria-label="breadcrumb" role="navigation">
+					<ol class="breadcrumb page-head-nav">
+						<li class="breadcrumb-item">
+							<a href="/BO-HR/index">หน้าหลัก</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_3">สวัสดิการ</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_310_menu">เมนูเงินกู้ส่งเสริมสวัสดิภาพพนักงาน</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_320">จัดการข้อมูลเงื่อนไขเงินกู้ส่งเสริมสวัสดิภาพพนักงาน</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#">เพิ่มรายการวัถุประสงค์</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="main-content container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card card-border-color card-border-color-primary">
+							<div class="card-header card-header-divider">เพิ่มรายการวัตถุประสงค์</div>
+							<div class="card-body">
+								<form id="form1" data-parsley-validate="" novalidate="">
+										<div class="row">
+									<div class="col-6">
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-6 col-sm-12 col-lg-8 form-group">
+											<label for="code">ชื่อวัตถุประสงค์</label>
+											<select id="category" name="category" value="ชื่อวัตถุประสงค์" required
+												data-parsley-errors-container="#category-errors">
+												<option></option>
+											</select>
+											<span id="category-errors"></span>
+										</div>
+										<!-- <div class="col-6 col-sm-12 col-lg-2 form-group"></div> -->
+									</div>
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-6 col-sm-12 col-lg-8 form-group">
+											<label for="guarator_level">ระดับผู้ค้ำประกัน</label>
+											<select id="guarator_level" name="guarator_level" value="ชื่อวัตถุประสงค์" required
+												data-parsley-errors-container="#category-errors">
+												<option></option>
+											</select>
+											<!-- <input id="guarator_level" type="number" name="guarator_level"  required
+												autocomplete="off" class="form-control" onkeyup="replaceDigit(this)" maxlength="3"> -->
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-6 col-sm-12 col-lg-8 form-group">
+											<label for="guarantor_amount">อัตราจำนวนผู้ค้ำ</label>
+											<input id="guarantor_amount" type="number" name="guarantor_amount"  required
+												autocomplete="off" class="form-control" onkeyup="replaceDigit(this)" maxlength="3">
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-6 col-sm-12 col-lg-8 form-group">
+											<label for="period_amount">จำนวนงวด</label>
+											<input id="period_amount" type="number" name="period_amount"  required
+												autocomplete="off" class="form-control" onkeyup="replaceDigit(this)">
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+								</div>
+									<div class="col-6">
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-6 col-sm-12 col-lg-8 form-group">
+											<label for="item_amount_bat">อัตราจำนวนเงิน (บาท)</label>
+											<input id="item_amount_bat" type="number" name="item_amount_bat" 
+												required autocomplete="off" class="form-control">
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-6 col-sm-12 col-lg-8 form-group">
+											<label for="item_amount_mamy">อัตราจำนวนเงิน (เท่า)</label>
+											<input id="item_amount_mamy" type="number" name="item_amount_mamy"
+												 required autocomplete="off" class="form-control" onkeyup="replaceDigit(this)" maxlength="3">
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-4 col-sm-12 col-lg-4">
+											<div>
+												<input type="radio" value="T" name="status" checked><span
+													style="margin-left: 10px;">เปิด ใช้งานเงื่อนไขจำนวนเงินเท่า</span>
+											</div>
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+									<br />
+									<div class="row">
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-4 col-sm-12 col-lg-4">
+											<div>
+												<input type="radio" value="B" name="status"><span
+													style="margin-left: 10px;">เปิด ใช้งานเงื่อนไขจำนวนเงินบาท</span>
+											</div>
+										</div>
+										<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+									</div>
+								</div>
+									<div class="col-6">
+									<div class="row">
+										<div class="col-2 col-sm-12 col-lg-2 form-group"></div>
+										<div class="col-8 col-sm-12 col-lg-6 form-group">
+											<label for="topic_th">อนุญาติส่งคำขอกู้ได้ (กรณีเงินเดือนคงเหลือสุทธิต่ำกว่า 5,000 บาท)</label>
+											<div class="onoffswitch">
+												<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+													id="myonoffswitch">
+												<label class="onoffswitch-label" for="myonoffswitch">
+													<span class="onoffswitch-inner"></span>
+													<span class="onoffswitch-switch"></span>
+												</label>
+											</div>
+										</div>
+										<div class="col-2 col-sm-12 col-lg-4 form-group"></div>
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="row pt-0 pt-sm-5">
+								<div class="col-sm-12 pl-0">
+									<p class="text-right">
+										<button onclick="location.href='UC_HRBO_320'" type="button"
+											class="btn btn-space btn-secondary">
+											<i class="icon icon-left mdi mdi-close"></i> ยกเลิก</button>
+										<button id="save" type="submit" class="btn btn-space btn-primary">
+											<i class="icon icon-left mdi mdi-save"></i> บันทึก</button>
+									</p>
+								</div>
+							</div>
+							<input type="hidden" name="statusswitch" value="" id="statusswitch">
+							<input type="hidden" name="status_action" value="I">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script src="/BO-HR/assets/lib/angular.min.js"></script>
+	<script src="/BO-HR/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript">
+	</script>
+	<script src="/BO-HR/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/js/app.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/parsley/parsley.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/parsley/i18n/th.js"></script>
+	<script src="/BO-HR/assets/lib/select2/js/select2.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/select2/js/select2.full.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//initialize the javascript
+			App.init();
+
+			var status = "{byPass}"
+			if (status == "1") {
+				document.getElementById("myonoffswitch").checked = false;
+			} else {
+				document.getElementById("myonoffswitch").checked = true;
+			}
+				if (document.getElementById("myonoffswitch").checked == true) {
+					document.getElementById("statusswitch").value = "1";
+				} else {
+					document.getElementById("statusswitch").value = "0";
+				}
+			$('#form1').submit(function (e) {
+				e.preventDefault();
+				$.ajax({
+					type: "POST",
+					url: "../endpoint/api_320",
+					data: $("#form1").serialize(),
+					success: function (response) {
+						if (response.status == "200") {
+							$('#md-success').modal('show');
+						} else if (response.status == "202") {
+							$('#md-error-dupicate').modal('show');
+						} else {
+							$('#md-error').modal('show');
+						}
+					}
+				});
+			});
+
+			$("#category").change(function () {
+				$(this).parsley().validate();
+			});
+
+			$('#category').select2({
+				cache: true,
+				ajax: {
+					method: 'GET',
+					url: '../endpoint/api_320a',
+					processResults: function (resp) {
+						console.log(resp);
+						return {
+							results: $.map(resp.data.result, function (item) {
+								return {
+									text: item.itemDesc,
+									id: item.id + "|" + item.category + "|" + item.activeFlag +
+										"|" + item.itemDesc + "|" + item.itemValue + "|" + item
+										.itemValue2
+								}
+							})
+						};
+					},
+				},
+				tags: true,
+				width: '100%'
+			});
+
+			$("#guarator_level").change(function () {
+				$(this).parsley().validate();
+			});
+
+			$('#guarator_level').select2({
+				cache: true,
+				ajax: {
+					method: 'GET',
+					url: '../endpoint/api_320_master',
+					processResults: function (resp) {
+						console.log(resp);
+						return {
+							results: $.map(resp, function (item) {
+								return {
+									text: item.subgroup_desc,
+									id: item.subgroup
+								}
+							})
+						};
+					},
+				},
+				tags: true,
+				width: '100%'
+			});
+			
+		});
+		function replaceDigit(el) {
+			el.value = el.value.replace(/\D/, '');
+		}
+	
+	</script>
+</body>
+<!--Bootstrao Modals-->
+<div id="md-success" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-primary">
+						<span class="modal-main-icon mdi mdi-check"></span>
+					</div>
+					<h3>บันทึกข้อมูลสำเร็จ!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary"
+							onclick="location.href='UC_HRBO_320'">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-error" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-danger">
+						<span class="modal-main-icon mdi mdi-alert-circle"></span>
+					</div>
+					<h3>ไม่สามารถบันทึกข้อมูลได้!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-error-dupicate" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-danger">
+						<span class="modal-main-icon mdi mdi-alert-circle"></span>
+					</div>
+					<h3>ชื่อวัตถุประสงค์นี้มีในระบบแล้ว!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</html>

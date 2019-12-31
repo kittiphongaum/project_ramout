@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/BO-HR/assets/img/logo-fav.png">
+	<title>ธนาคารออมสิน</title>
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/material-design-icons/css/material-design-iconic-font.min.css" />
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/datatables/datatables.net-bs4/css/dataTables.bootstrap4.css" />
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/select2/css/select2.min.css" />
+	<link rel="stylesheet" type="text/css" href="/BO-HR/assets/lib/bootstrap-slider/css/bootstrap-slider.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="/BO-HR/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="/BO-HR/assets/css/app.css" type="text/css" />
+</head>
+
+<body ng-app="">
+	<div class="be-wrapper">
+		<div ng-include="'/BO-HR/navbar?active={menu_item}'"></div>
+		<div class="be-content">
+			<div class="page-head">
+				<h2 class="page-head-title">สวัสดิการ</h2>
+				<nav aria-label="breadcrumb" role="navigation">
+					<ol class="breadcrumb page-head-nav">
+						<li class="breadcrumb-item">
+							<a href="/BO-HR/index">หน้าหลัก</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_3">สวัสดิการ</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="UC_HRBO_310_menu">เมนูเงินกู้ส่งเสริมสวัสดิการ</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#">จัดการข้อมูลเงื่อนไขเงินกู้ส่งเสริมสวัสดิการ</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="main-content container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link" id="level1-tab" data-toggle="tab" href="#1" role="tab"
+									aria-controls="1" aria-selected="true" onclick="rePage('1')">ตั้งค่าวัตถุประสงค์</a>
+							</li>
+							<!-- <li class="nav-item">
+								<a class="nav-link" id="level2-tab" data-toggle="tab" href="#2" role="tab"
+									aria-controls="2" aria-selected="true"
+									onclick="rePage('2')">ตั้งค่าเงื่อนไขผู้คำ</a>
+							</li> -->
+							<li class="nav-item">
+								<a class="nav-link" id="level3-tab" data-toggle="tab" href="#3" role="tab"
+									aria-controls="3" aria-selected="true"
+									onclick="rePage('3')">ตั้งค่าเงื่อนไขผู้กู้</a>
+							</li>
+						</ul>
+						<!-- step 2 เพิ่มวัตถุประสงค์ของการกู้  -->
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="1" role="tabpanel" aria-labelledby="level1-tab">
+								<div class="card card-table">
+									<div class="card-header">
+										<button type="button" class="btn btn-space btn-primary btn-big"
+											onclick="location.href='UC_HRBO_320a';">
+											<i
+												class="icon icon-left mdi mdi-plus-square"></i>เพิ่มวัตถุประสงค์ของการกู้</button>
+										</button>
+									</div>
+									<div class="row table-filters-container">
+									</div>
+									<div class="card-body">
+										<div class="table-responsive noSwipe">
+											<table id="table2" class="table table-striped table-hover table-fw-widget">
+												<thead>
+													<tr>
+														<th>ชื่อวัตถุประสงค์</th>
+														<th>จำนวนเงิน (บาท)</th>
+														<th>จำนวนเงิน (เท่า)</th>
+														<th>สถานะการใช้งานเงินกู้</th>
+														<th class="actions">ลบ</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- BEGIN request -->
+													<tr class="odd gradeX">
+														<td><a
+																href="/BO-HR/UC_HRBO_3/controller/UC_HRBO_320e?category={request.item_value}">{request.item_desc}</a>
+														</td>
+														<td>{request.item_amount_bat}</td>
+														<td>{request.item_amount_mamy}</td>
+														<td>
+															{request.loan_status}
+														</td>
+														<td class="actions">
+															<button type="button" class="btn btn-secondary"
+																onclick="_onDelete('{request.item_value}')"><i
+																	class="icon mdi mdi-delete"></i></button>
+														</td>
+													</tr>
+													<!-- END request -->
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="2" role="tabpanel" aria-labelledby="level2-tab">
+								<div class="card card-table">
+									<div class="card-header">
+										<button type="button" class="btn btn-space btn-primary btn-big"
+											onclick="location.href='UC_HRBO_320_guarantor';">
+											<i
+												class="icon icon-left mdi mdi-plus-square"></i>เพิ่มเงื่อนไขผู้คำ</button>
+										</button>
+									</div>
+									<div class="row table-filters-container">
+											<h4>เลือกเปิดใช้งาน ได้เพียง 1 เงื่อนไขเท่านั้น</h4>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive noSwipe">
+											<table id="guarntor" class="table table-striped table-hover table-fw-widget">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>วันที่สร้าง</th>
+														<th>title</th>
+														<th>ตำแหน่ง/ระดับผู้ค้ำ</th>
+														<th>สิทธิการค้ำประกัน</th>
+														<th>สถานะการใช้งาน</th>
+														<th class="actions">ลบ</th>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="3" role="tabpanel" aria-labelledby="level3-tab">
+								<div class="card card-table">
+									<div class="card-header">
+										<button type="button" class="btn btn-space btn-primary btn-big"
+											onclick="location.href='UC_HRBO_320_loan_c';">
+											<i
+												class="icon icon-left mdi mdi-plus-square"></i>เพิ่มเงื่อนไขผู้กู้</button>
+										</button>
+									</div>
+									<div class="row table-filters-container">
+									</div>
+									<div class="card-body">
+										<div class="table-responsive noSwipe">
+											<div id="table2_wrapper"
+												class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+												<div class="row be-datatable-body">
+													<div class="col-sm-12">
+														<table id="loamPapm"
+															class="table table-striped table-hover table-fw-widget dataTable no-footer"
+															role="grid" aria-describedby="table2_info">
+															<thead>
+																<tr>
+																	<th>#</th>
+																	<th>Title</th>
+																	<th>Key code</th>
+																	<th>Key name</th>
+																	<th>Ord</th>
+																	<th>Created date</th>
+																	<th>Status</th>
+																	<th class="actions" data-orderable="false">Edit</th>
+																	<!-- <th class="actions" data-orderable="false">Delete</th> -->
+																</tr>
+															</thead>
+															<tbody>
+															</tbody>
+														</table>
+													</div>
+												</div>
+												<div class="row be-datatable-footer">
+													<div class="col-sm-5">
+														<div class="dataTables_info" id="table2_info" role="status"
+															aria-live="polite">กำลังแสดงหน้า 1 จากทั้งหมด 1 หน้า</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="dataTables_paginate paging_simple_numbers"
+															id="table2_paginate">
+															<ul class="pagination">
+																<li class="paginate_button page-item previous disabled"
+																	id="table2_previous"><a href="#"
+																		aria-controls="table2" data-dt-idx="0"
+																		tabindex="0" class="page-link">หน้าก่อนหน้า</a>
+																</li>
+																<li class="paginate_button page-item active"><a href="#"
+																		aria-controls="table2" data-dt-idx="1"
+																		tabindex="0" class="page-link">1</a></li>
+																<li class="paginate_button page-item next disabled"
+																	id="table2_next"><a href="#" aria-controls="table2"
+																		data-dt-idx="2" tabindex="0"
+																		class="page-link">หน้าถัดไป</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/BO-HR/assets/lib/angular.min.js"></script>
+	<script src="/BO-HR/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript">
+	</script>
+	<script src="/BO-HR/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/js/app.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/select2/js/select2.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/select2/js/select2.full.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/bootstrap-slider/bootstrap-slider.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/js/app-table-filters.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/datatables/datatables.net/js/jquery.dataTables.js" type="text/javascript"></script>
+	<script src="/BO-HR/assets/lib/datatables/datatables.net-bs4/js/dataTables.bootstrap4.js" type="text/javascript">
+	</script>
+	<script src="/BO-HR/assets/js/app-tables-datatables.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function setTab(tab) {
+			$('.nav-tabs a[href="#' + tab + '"]').tab('show');
+			if (tab == '1') {
+				dataTable_survey()
+			} else {
+				dataTable_prebook()
+			}
+		}
+
+		// function rePage(tab) {
+		// 	if (tab == '1') {
+		// 		dataTable_survey()
+		// 	} else {
+		// 		dataTable_prebook()
+		// 	}
+		// }
+		$(document).ready(function () {
+			//initialize the javascript
+			App.init();
+			App.tableFilters();
+			App.dataTables();
+
+			$("#confirm").on('click', function () {
+				$.ajax({
+					type: "POST",
+					processData: false,
+					url: "../endpoint/api_320",
+					data: "category=" + $('#category').val() + "&status_action=D",
+					success: function (response) {
+						if (response.status == 200) {
+							$('#md-dl-success').modal('show');
+						} else {
+							$('#md-dl-error').modal('show');
+						}
+					}
+				});
+			});
+			$.ajax({
+				type: "GET",
+				processData: false,
+				url: "../endpoint/api_320c",
+				success: function (response) {
+
+					var table = "";
+					for (var i = 0; i < response.length; i++) {
+						// var no =i+1;
+						table += '<tr>' +
+							'<td>' + response[i].no + '</td>' +
+							'<td>' + response[i].title + '</td>' +
+							'<td>' + response[i].key_code + '</td>' +
+							'<td class="text-overflow">' + response[i].key_name + '</td>' +
+							'<td>' + response[i].ord + '</td>' +
+							'<td>' + response[i].created_date + '</td>' +
+							'<td>' + response[i].status + '</td>' +
+							'<td class="actions">' +
+							' <button type="button" class="btn btn-secondary" onclick="editLoan(' +
+							response[i].id + ')" data-toggle="modal" data-target="#loamPapm">' +
+							'<i class="icon mdi mdi-wrench"></i>' +
+							'</button>' +
+							'</td>' +
+							'</tr>';
+					}
+					$('#loamPapm tbody').append(table);
+				}
+			});
+			$.ajax({
+				type: "GET",
+				processData: false,
+				url: "../endpoint/api_320_guarantor",
+				success: function (response) {
+					console.log(response);
+					var table = "";
+					for (var i = 0; i < response.length; i++) {
+						table += '<tr>' +
+							'<td>'+response[i].no+'</td>' +
+							'<td>'+response[i].created_date+'</td>' +
+							'<td><a>'+response[i].title+'</a>' +
+							'</td>' +
+							'<td>'+response[i].subgroup_name+'</td>' +
+							'<td class="text-overflow">'+response[i].claim_limit+'</td>' +
+							'<td>'+response[i].status+'</td>' +
+							'<td class="actions">' +
+							'<button type="button" class="btn btn-secondary"' +
+							'onclick="editguarantor('+response[i].guarantor_id+')" data-toggle="modal"' +
+							'data-target="#exampleModalCenter">' +
+							'<i class="icon mdi mdi-wrench"></i>' +
+							'</button>' +
+							// '<button type="button" class="btn btn-secondary"'+
+							// 'onclick="_onDelete('+')"><i class="icon mdi mdi-delete"></i></button>' +
+							'</td>'+
+						'</tr>';
+					}
+					$('#guarntor tbody').append(table);
+				}
+			});
+		});
+		
+		function editLoan(params) {
+			location.href = 'UC_HRBO_320_loan_c?loanPeam=' + params;
+		}
+		function editguarantor(params) {
+			location.href = 'UC_HRBO_320_guarantor?guarantor=' + params;
+		}
+
+		function _onDelete(_item_desc) {
+			$('#md-confirm').modal('show');
+			$('#category').val(_item_desc);
+		}
+
+	</script>
+</body>
+<div id="md-confirm" tabindex=-1 role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-primary">
+						<span class="modal-main-icon mdi mdi-save"></span>
+					</div>
+					<h3>ลบข้อมูล!</h3>
+					<p>ยืนยันการลบข้อมูลหรือไม่?</p>
+					<input id="category" type="hidden" />
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">
+					<i class="icon icon-left mdi mdi-close"></i> ปฏิเสธ</button>
+				<button id="confirm" name="confirm" type="button" data-dismiss="modal"
+					class="btn btn-space btn-primary">
+					<i class="icon icon-left mdi mdi-check"></i> ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div id="md-dl-success" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-primary">
+						<span class="modal-main-icon mdi mdi-check"></span>
+					</div>
+					<h3>ลบข้อมูลสำเร็จ!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary"
+							onclick="window.location = '../controller/UC_HRBO_320'; location.reload()">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="md-dl-error" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center">
+					<div class="text-danger">
+						<span class="modal-main-icon mdi mdi-alert-circle"></span>
+					</div>
+					<h3>ไม่สามารถลบข้อมูลได้!</h3>
+					<div class="mt-8">
+						<button type="button" data-dismiss="modal" class="btn btn-space btn-secondary">รับทราบ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- step 2 เพิ่มเงื่อนไขผู้ค้ำ  -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<h2 class="modal-title" id="exampleModalLongTitle">รายละเอียด เพิ่มเงื่อนไขผู้ค้ำ</h2>
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">ผู้ค้ำต้องดำรงตตำแหน่งในระดับ</label>
+					<input id="key_code" type="text" name="key_code" required="" placeholder="ระบุ" autocomplete="off"
+						class="form-control">
+					<input id="key_type" type="hidden" name="key_type">
+					<div id="t1">
+					</div>
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">สิทธิการค้ำประกัน</label>
+					<input id="title" type="text" name="title" required="" placeholder="ระบุสิทธิการค้ำประกัน"
+						autocomplete="off" class="form-control">
+					<div id="t4">
+					</div>
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">Status</label>
+					<div class="onoffswitch">
+						<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+						<label class="onoffswitch-label" for="myonoffswitch">
+							<span class="onoffswitch-inner"></span>
+							<span class="onoffswitch-switch"></span>
+						</label>
+					</div>
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">Created date</label>
+					<input id="created_date2" type="text" name="created_date2" required="" placeholder="ระบุ"
+						autocomplete="off" disabled class="form-control">
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">Updated_date</label>
+					<input id="updated_date2" type="text" name="topic2" required="" placeholder="ระบุ"
+						autocomplete="off" disabled class="form-control">
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-space btn-danger" data-dismiss="modal"> <i
+						class="icon icon-left mdi mdi-close"></i> ยกเลิก</button>
+				<button type="button" class="btn btn-space btn-primary" onclick="updatefn()"> <i
+						class="icon icon-left mdi mdi-save"></i> บันทึก</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="modal fade" id="loamPapm" tabindex="-1" role="dialog" aria-labelledby="loamPapm" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<h2 class="modal-title" id="exampleModalLongTitle">รายละเอียด เพิ่มเงื่อนไขผู้ค้ำ</h2>
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span class="mdi mdi-close"></span>
+				</button>
+			</div>
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">ผู้ค้ำต้องดำรงตตำแหน่งในระดับ</label>
+					<input id="key_code" type="text" name="key_code" required="" placeholder="ระบุ" autocomplete="off"
+						class="form-control">
+					<input id="key_type" type="hidden" name="key_type">
+					<div id="t1">
+					</div>
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">สิทธิการค้ำประกัน</label>
+					<input id="title" type="text" name="title" required="" placeholder="ระบุสิทธิการค้ำประกัน"
+						autocomplete="off" class="form-control">
+					<div id="t4">
+					</div>
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">Status</label>
+					<div class="onoffswitch">
+						<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+						<label class="onoffswitch-label" for="myonoffswitch">
+							<span class="onoffswitch-inner"></span>
+							<span class="onoffswitch-switch"></span>
+						</label>
+					</div>
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">Created date</label>
+					<input id="created_date2" type="text" name="created_date2" required="" placeholder="ระบุ"
+						autocomplete="off" disabled class="form-control">
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+				<div class="col-6 col-sm-12 col-lg-8 form-group">
+					<label for="topic_th">Updated_date</label>
+					<input id="updated_date2" type="text" name="topic2" required="" placeholder="ระบุ"
+						autocomplete="off" disabled class="form-control">
+				</div>
+				<div class="col-6 col-sm-12 col-lg-2 form-group"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-space btn-danger" data-dismiss="modal"> <i
+						class="icon icon-left mdi mdi-close"></i> ยกเลิก</button>
+				<button type="button" class="btn btn-space btn-primary" onclick="updatefn()"> <i
+						class="icon icon-left mdi mdi-save"></i> บันทึก</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</html>
