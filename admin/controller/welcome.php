@@ -8,7 +8,7 @@ require_once '../../lib/template.php';
 // require_once '../../UC_HRBO_3/model/course_master_Model_import.php';
 $template = new template();
 $template->set_filenames(array(
-    'body' => '../view/admin_profile.html')
+    'body' => '../view/welcome.html')
 );
 // $database = new Database();
 // $db       = $database->getConnection();
